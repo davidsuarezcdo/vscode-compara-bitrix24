@@ -10,6 +10,10 @@
   "categories": [
     "Other"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/davidsuarezcdo/vscode-compara-bitrix24.git"
+  },
   "activationEvents": [
     "onCommand:vscode-compara-bitrix24.bitrix24DevUrlGenFolder",
     "onCommand:vscode-compara-bitrix24.bitrix24DevUrlGenFile",
@@ -40,37 +44,45 @@
       "editor/title/context": [
         {
           "command": "vscode-compara-bitrix24.bitrix24DevUrlGenFolder",
-          "group": "vscode-compara-bitrix24-dev"
+          "group": "vscode-compara-bitrix24-dev",
+          "when": "resourceDirname =~ /bitrix24/"
         },
         {
           "command": "vscode-compara-bitrix24.bitrix24DevUrlGenFile",
-          "group": "vscode-compara-bitrix24-dev"
+          "group": "vscode-compara-bitrix24-dev",
+          "when": "resourceDirname =~ /bitrix24/"
         },
         {
           "command": "vscode-compara-bitrix24.bitrix24ProdUrlGenFolder",
-          "group": "vscode-compara-bitrix24-prod"
+          "group": "vscode-compara-bitrix24-prod",
+          "when": "resourceDirname =~ /bitrix24/"
         },
         {
           "command": "vscode-compara-bitrix24.bitrix24ProdUrlGenFile",
-          "group": "vscode-compara-bitrix24-prod"
+          "group": "vscode-compara-bitrix24-prod",
+          "when": "resourceDirname =~ /bitrix24/"
         }
       ],
       "editor/context": [
         {
           "command": "vscode-compara-bitrix24.bitrix24DevUrlGenFolder",
-          "group": "vscode-compara-bitrix24-dev"
+          "group": "vscode-compara-bitrix24-dev",
+          "when": "resourceDirname =~ /bitrix24/"
         },
         {
           "command": "vscode-compara-bitrix24.bitrix24DevUrlGenFile",
-          "group": "vscode-compara-bitrix24-dev"
+          "group": "vscode-compara-bitrix24-dev",
+          "when": "resourceDirname =~ /bitrix24/"
         },
         {
           "command": "vscode-compara-bitrix24.bitrix24ProdUrlGenFolder",
-          "group": "vscode-compara-bitrix24-prod"
+          "group": "vscode-compara-bitrix24-prod",
+          "when": "resourceDirname =~ /bitrix24/"
         },
         {
           "command": "vscode-compara-bitrix24.bitrix24ProdUrlGenFile",
-          "group": "vscode-compara-bitrix24-prod"
+          "group": "vscode-compara-bitrix24-prod",
+          "when": "resourceDirname =~ /bitrix24/"
         }
       ]
     }
@@ -85,7 +97,7 @@
     "pretest": "yarn run compile-tests && yarn run compile && yarn run lint",
     "lint": "eslint src --ext ts",
     "test": "node ./out/test/runTest.js",
-    "build": "npx vsce package --out dist/extension.vsix",
+    "build": "npx vsce package --out dist/",
     "release": "npm run build && npx release-it"
   },
   "devDependencies": {
