@@ -21,7 +21,7 @@ export function activate(context: vscode.ExtensionContext) {
 function resolveBitrixUrl(env: UrlEnvironment, type: UrlType) {
   const filepath = vscode.window.activeTextEditor?.document.fileName;
   const url = resolveUrl(filepath, env, type);
-  vscode.env.openExternal(vscode.Uri.parse(url));
+  vscode.commands.executeCommand("vscode.open", url);
 }
 
 export function deactivate() {}
