@@ -1,0 +1,27 @@
+{
+  "git": {
+    "commitMessage": "chore: release v${version}",
+    "commitArgs": ["-S"],
+    "tagArgs": ["-s"],
+    "pushArgs": ["--follow-tags"],
+    "tag": true,
+    "tagName": "v${version}",
+    "requireUpstream": true,
+    "requireCleanWorkingDir": true,
+    "requireCommits": true,
+    "pushRepo": "origin",
+    "addUntrackedFiles": false,
+    "commit": true,
+    "tagAnnotation": "chore: release ${version}",
+    "push": true
+  },
+  "npm": {
+    "publish": false
+  },
+  "plugins": {
+    "@release-it/conventional-changelog": {
+      "preset": "angular",
+      "infile": "CHANGELOG.md"
+    }
+  }
+}
