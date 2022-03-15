@@ -9,25 +9,29 @@ export enum UrlEnvironment {
 }
 
 const defaultParams = {
-  [UrlType.file]: {},
+  [UrlType.file]: {
+    ["full_src"]: "Y",
+    filter: "Y",
+    ["set_filter"]: "Y",
+  },
   [UrlType.folder]: {
     ["PAGEN_1"]: "1",
     ["SIZEN_1"]: "20",
     ["show_perms_for"]: "0",
     ["check_for_file"]: "Y",
-    site: "s1",
   },
 };
 
 export function resolveUrl(filepath: any, env: UrlEnvironment, type: UrlType): string {
-  const [, relativePath] = filepath.split("/bitrix/");
+  const [, relativePath] = filepath.split("/bitrix24/");
 
   const bitrixPath = type === UrlType.folder ? getFolderPath(relativePath) : relativePath;
 
   const params = objectToParams({
     ...defaultParams[type],
     lang: "la",
-    path: `/bitrix/${bitrixPath}`,
+    site: "s1",
+    path: `/${bitrixPath}`,
   });
 
   return `https://${env}.comparaonline.com/bitrix/admin/${type}.php?${params}`;
